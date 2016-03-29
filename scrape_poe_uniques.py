@@ -1,7 +1,7 @@
 #! python3
 # -*- coding: utf-8 -*-
 """
-# scrape_poe_uniquesOriginal.py - scrapes poe uniques from http://pathofexile.gamepedia.com/Unique_item#UniqueItemTypes
+# scrape_poe_uniques.py - scrapes poe uniques from http://pathofexile.gamepedia.com/Unique_item#UniqueItemTypes
 and then writes them, in their category, one per line.
 """
 
@@ -186,22 +186,30 @@ def build_data(data):
     unique_data = []
     all_data = []
     for tags in data:
+        if 'Drillneck' in tags.contents[0].text:
+            print('here')
         unique_data.append(tags.contents[0].text.rstrip())  # name of Unique
         print('Getting data for {}'.format(tags.contents[0].text.rstrip()))
         for stats in tags.find_all('div', class_='itemboxstats'):
-                        if len(stats.contents) == 1:  # unique has no implicit
-                            pass
-                        else:
-                            unique_data.append('@' + stats.contents[0].text)  # the implicit
-                        for stat in stats.contents[len(stats.contents) - 1].contents:
-                            if stat == '<Style Variant> ':  # another web page needs to be gotten
-                                x = get_extra_item_data(stats.find('a'))
-                                for line in x:
-                                    unique_data.append(line.replace(u'\u2212', '-').replace(u'\u2013', '-'))
-                            if isinstance(stat, NavigableString):
-                                unique_data.append(str(stat).replace(u'\u2212', '-').replace(u'\u2013', '-'))
-                        all_data.append(unique_data)
-                        unique_data = []
+            if len(stats.contents) == 1:  # unique has no implicit
+                pass
+            else:
+                unique_data.append('@' + stats.contents[0].text)  # the implicit
+            for stat in stats.contents[len(stats.contents) - 1].contents:
+                try:  # this code searches for uniques like Drillneck that for some reason are different in
+                    if len(stat.contents) > 1:  # how they are set on the webpage.
+                        for line in stat.contents:
+                            if isinstance(line, NavigableString):
+                                unique_data.append(str(line).replace(u'\u2212', '-').replace(u'\u2013', '-'))
+                except AttributeError:
+                    if stat == '<Style Variant> ':  # another web page needs to be gotten
+                        x = get_extra_item_data(stats.find('a'))
+                        for line in x:
+                            unique_data.append(line.replace(u'\u2212', '-').replace(u'\u2013', '-'))
+                    if isinstance(stat, NavigableString):
+                        unique_data.append(str(stat).replace(u'\u2212', '-').replace(u'\u2013', '-'))
+            all_data.append(unique_data)
+            unique_data = []
 
     return all_data
 
