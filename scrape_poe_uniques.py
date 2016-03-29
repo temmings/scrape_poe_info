@@ -186,8 +186,6 @@ def build_data(data):
     unique_data = []
     all_data = []
     for tags in data:
-        if 'Drillneck' in tags.contents[0].text:
-            print('here')
         unique_data.append(tags.contents[0].text.rstrip())  # name of Unique
         print('Getting data for {}'.format(tags.contents[0].text.rstrip()))
         for stats in tags.find_all('div', class_='itemboxstats'):
