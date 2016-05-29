@@ -223,7 +223,6 @@ def convert_data_to_AHK_readable_format(all_data):
     for line in all_data:  # this is the list which contains the item's data
         for list1 in line:  # this iters thru the list and uses regex to search each string
             line_hold = []
-            count = 0
             for data in list1:
                 data = data.strip()  # trims any leading/trailing whitespace
                 data = data.replace(u'\u2013', '-')  # needs another unicode replace sometimes
@@ -237,7 +236,6 @@ def convert_data_to_AHK_readable_format(all_data):
                     data = '|' + hold + str_hold.strip().title()  # trims and capitalizes the newly constructed string
                     data = data.replace('  ', ' ').replace('% ', '').replace('( To )', '').replace('+', '')  # further cleans up some returned strings
                     line_hold += data  # adds the newly made piece of data to the overall string to be handed back later
-                    count += 1
                     continue
                 if 'variant' in data:  # check the data piece for the variant that needs some special editing.
                     line_hold += build_variant(data)
