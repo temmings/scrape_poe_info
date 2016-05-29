@@ -222,7 +222,7 @@ def convert_data_to_AHK_readable_format(all_data):
     new_data = []
     for line in all_data:  # this is the list which contains the item's data
         for list1 in line:  # this iters thru the list and uses regex to search each string
-            line_hold = ""
+            line_hold = []
             count = 0
             for data in list1:
                 data = data.strip()  # trims any leading/trailing whitespace
@@ -242,10 +242,10 @@ def convert_data_to_AHK_readable_format(all_data):
                 if 'variant' in data:  # check the data piece for the variant that needs some special editing.
                     line_hold += build_variant(data)
                     continue
-                if count > 1 and data is not '':  # this is for lines that don't have numbers in them, but need to be added
+                if len(line_hold) > 0 and data is not '':  # this is for lines that don't have numbers in them, but need to be added
                     data = '|' + data.strip().title()  # to the item's data. designed to catch odds and ends.
-                line_hold += data
-            new_data.append(line_hold)  # we've rebuilt the unique's info, so add it to the new list for storage.
+                line_hold.append(data)
+            new_data.append(''.join(line_hold))  # we've rebuilt the unique's info, so add it to the new list for storage.
 
     return new_data
 
