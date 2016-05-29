@@ -186,8 +186,9 @@ def build_data(data):
     unique_data = []
     all_data = []
     for tags in data:
-        unique_data.append(tags.contents[0].text.rstrip())  # name of Unique
-        print('Getting data for {}'.format(tags.contents[0].text.rstrip()))
+        tag_content = tags.contents[0].text.rstrip().replace(u'\u00F6', 'o')  # Replace ö with o
+        unique_data.append(tag_content)  # name of Unique
+        print('Getting data for {}'.format(tag_content))
         for stats in tags.find_all('div', class_='itemboxstats'):
             if len(stats.contents) == 1:  # unique has no implicit
                 pass
