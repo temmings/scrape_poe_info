@@ -207,8 +207,8 @@ def build_data(data):
                             unique_data.append(line.replace(u'\u2212', '-').replace(u'\u2013', '-'))
                     if isinstance(stat, NavigableString):
                         unique_data.append(str(stat).replace(u'\u2212', '-').replace(u'\u2013', '-'))
-            all_data.append(unique_data)
-            unique_data = []
+        all_data.append(unique_data)
+        unique_data = []
 
     return all_data
 
