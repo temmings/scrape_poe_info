@@ -1,2 +1,6 @@
-# scape_poe_uniques
-scrape_poe_uniques.py - scrapes poe uniques from http://pathofexile.gamepedia.com/Unique_item#UniqueItemTypes and then writes them, in their category, one per line.
+# scrape_poe_info
+
+These scripts scrape information from the PoE wiki and write them to files for use by the POE-ItemInfo ahk script.
+
+- scrape_poe_uniques.py: reads unique items from http://pathofexile.gamepedia.com/Unique_item#UniqueItemTypes
+- scrape_poe_cards.py: reads divination cards from http://pathofexile.gamepedia.com/Divination_Cards
