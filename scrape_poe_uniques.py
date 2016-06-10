@@ -12,7 +12,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 
 main_url = 'http://pathofexile.gamepedia.com/Unique_item#UniqueItemTypes'
 
-rx_search = re.compile(r'\+*\((\d+)\s[a-z]+\s(\d+)[)]|(\+*\d+\%)|(\d+-\d+)|(\(\d+-\d+)\s\w+\s(\d+-\d+\))|(-?\+?\d+)')
+rx_search = re.compile(r'\+*\(([\d\.]+)\s[a-z]+\s([\d\.]+)[)]|(\+*[\d\.]+\%)|([\d\.]+-[\d\.]+)|(\([\d\.]+-[\d\.]+)\s\w+\s([\d\.]+-[\d\.]+\))|(-?\+?[\d\.]+)')
 unicode = re.compile(r'[^\x00-\x7F]+')  # regex that can be used to check for unicode chars in text
 
 
