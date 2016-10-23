@@ -14,7 +14,7 @@ base_url = 'http://pathofexile.gamepedia.com'
 main_url = base_url + '/User:ARTyficial/MapData'
 
 rx_search = re.compile(r'\+*\(([\d\.]+)\s[a-z]+\s([\d\.]+)[)]|(\+*[\d\.]+\%)|([\d\.]+-[\d\.]+)|(\([\d\.]+-[\d\.]+)\s\w+\s([\d\.]+-[\d\.]+\))|(-?\+?[\d\.]+)')
-vendor_regex = re.compile('yield one|produced by', re.IGNORECASE)
+vendor_regex = re.compile('yields? one|produces? one', re.IGNORECASE)
 maptype_regex = re.compile('Map type', re.IGNORECASE)
 
 
@@ -65,6 +65,7 @@ def get_main_page(url):
         map_info['name'] = tds[2].text.strip()
         map_info['url'] = base_url + '/' + map_info['name'].replace(' ', '_')
         map_info['unique'] = tds[3].find('img')['alt'].strip()
+        map_info['shaped'] = 'no'
         map_info['tileset'] = tds[4].text.strip()
         map_info['atlasposition'] = tds[5].text.strip()
         map_info['producedby'] = tds[6].text.strip()
@@ -79,6 +80,27 @@ def get_main_page(url):
             map_info['base'] = map_info['name']
 
         map_urls.append(map_info)
+    
+        # insert shaped map to re-use some of the data
+        if int(map_info['tier']) < 11 and map_info['unique'] == 'no':
+            map_info_sh = {}
+            map_info_sh['count'] = mapcount
+            mapcount += 1
+            map_info_sh['tier'] = str(int(map_info['tier'])+5)
+            map_info_sh['level'] = str(int(map_info_sh['tier'])+67)
+            map_info_sh['name'] = 'Shaped ' + map_info['name']
+            map_info_sh['url'] = base_url + '/' + map_info_sh['name'].replace(' ', '_')
+            map_info_sh['unique'] = 'no'
+            map_info_sh['shaped'] = 'yes'
+            map_info_sh['tileset'] = map_info['tileset']
+            map_info_sh['atlasposition'] = map_info['atlasposition']
+            map_info_sh['producedby'] = None
+            map_info_sh['upgradesto'] = None    # will be filled later with page query information
+            map_info_sh['connectedto'] = None
+            map_info_sh['boss'] = map_info['boss']
+            map_info_sh['base'] = map_info['base']
+            map_urls.append(map_info_sh)
+
     return map_urls
 
 
@@ -99,13 +121,24 @@ def find_divcards(div):
         if h2.find('span', id='Divination_cards'):
             return h2
     return None
-
-	
-def find_setting(div):
-    for maptype in div.find_all(text=maptype_regex):
-        return maptype.parent.next_sibling.replace(':', '').strip()
+    
+def find_vendor_recipe(div):
+    try:
+        for yields in div.find_all(text=vendor_regex):
+            return yields.next_sibling.findNext('a').findNext('a').text
+    except:
+        return None
     return None
+    
 
+def find_setting(div):
+    try:
+        for maptype in div.find_all(text=maptype_regex):
+            return maptype.parent.next_sibling.replace(':', '').strip()
+    except:
+        return None
+    return None
+    
 
 def build_data(data, mapinfo):
     """
@@ -128,8 +161,9 @@ def build_data(data, mapinfo):
         for divcard in divcards:
             map_data['divcards'].append(divcard.find('a').text)
 
-    # find the text string "yield|produce one" to determine the vendor recipe for the map
-    # map_data['vendor'] = find_vendor_recipe(div)
+    # find the text string "yield(s) one/produce(s) one" to determine the vendor recipe for the map
+    if map_data['shaped'] == 'yes':        # other recipes are already filled via wiki's User:ARTyficial/MapData table
+        map_data['upgradesto'] = find_vendor_recipe(div)
 
     # find the map setting (indoors/outdoors)
     map_data['setting'] = find_setting(div)
@@ -157,38 +191,37 @@ def convert_data_to_AHK_readable_format(all_data):
     vendor_map = {}
     unique_map = {}
     matchList = []
+    matchList_shaped = []
     for mymap in all_data:  # scan once to determine the lower tier map(s) that vendor up to each map
         #if mymap['vendor'] is not None and mymap['unique'] == 'no':
         #    if not mymap['vendor'] in vendor_map:
         #        vendor_map[mymap['vendor']] = []
         #    vendor_map[mymap['vendor']].append(mymap['name'])
         if mymap['unique'] == 'no':
-            matchList.append(mymap['name'])
+            if mymap['shaped'] == 'no':
+                matchList.append(mymap['name'])
+            if mymap['shaped'] == 'yes':
+                matchList_shaped.append(mymap['name'])
         if mymap['unique'] == 'yes' and mymap['base'] is not None:
             unique_map[mymap['base']] = mymap['name']
 
-    new_data.append('matchList := ["' + '","'.join(matchList) + '"]\n')
+    # shaped maps before other maps so that the script tries to match "Shaped Xyz Map" before "Xyz Map"
+    new_data.append('matchList := ["' + '","'.join(matchList_shaped) + '","' + '","'.join(matchList) + '"]\n')
 
     for mymap in all_data:
         if mymap['base'] is None:
             print('ERROR: Could not determine base map type for map: ' + mymap['name'])
             continue
-        structureName = 'mapList'
         if mymap['unique'] == 'yes':
-            structureName = 'uniqueMapList'
             new_data.append(';' + mymap['name'])
-        line = structureName + '["' + mymap['base'] + '"] := "'
+            line = 'uniqueMapList["' + mymap['base'] + '"] := "'
+        else:
+            line = 'mapList["' + mymap['name'] + '"] := "'
+        
         line += 'Tier: ' + mymap['tier'] + ', Level: ' + mymap['level'] + ', Atlas position: ' + mymap['atlasposition']
         line += '`nTileset: ' + mymap['tileset']
         if mymap['setting'] is not None:
             line += ' (' + mymap['setting'] + ')'
-
-        # Here we insert the prewritten text descriptions for the maps that have them
-        #desc_key = 'maps'
-        #if mymap['unique'] == 'yes':
-        #    desc_key = 'uniqueMaps'
-        #if mymap['base'] in map_descriptions[desc_key]:
-        #    line += '`n`n' + map_descriptions[desc_key][mymap['base']]
 
         # Add on vendor recipes and connected maps
         if mymap['unique'] == 'no':
@@ -200,22 +233,35 @@ def convert_data_to_AHK_readable_format(all_data):
                 info_lines.append('`nProduced by: ' + mymap['producedby'])
             if mymap['upgradesto']:
                 info_lines.append('`nUpgrades to: ' + mymap['upgradesto'])
+            else:
+                info_lines.append('`nUpgrades to: ?')
             if mymap['connectedto']:
                 info_lines.append('`nConnected to: ' + mymap['connectedto'])
             if len(info_lines) > 0:
                 line += '`n'
                 for il in info_lines:
                     line += il
+        
+        # Add line when map is shaped
+        if mymap['shaped'] == 'yes':
+            line += '`n`nInfos from ' + mymap['base'] + ':'
 
         # Add on unique version if one exists
-        if mymap['name'] in unique_map:
-            line += '`n`nUnique version of map: ' + unique_map[mymap['name']]
+        if mymap['base'] in unique_map and mymap['unique'] == 'no':
+            line += '`n`nUnique version of map: ' + unique_map[mymap['base']]
 
-		# Add on divination cards
+        # Add on divination cards
         if len(mymap['divcards']) > 0:
             line += '`n`nDivination cards:'
             for dc in mymap['divcards']:
                 line += '`n- ' + dc
+                
+        # Here we insert the prewritten text descriptions for the maps that have them
+        desc_key = 'maps'
+        if mymap['unique'] == 'yes':
+            desc_key = 'uniqueMaps'
+        if mymap['base'] in map_descriptions[desc_key]:
+            line += '`n`n' + map_descriptions[desc_key][mymap['base']]
 
         line += '"\n'
         new_data.append(line)
