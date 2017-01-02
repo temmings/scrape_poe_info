@@ -139,7 +139,7 @@ def find_setting(div):
 	except:
 		return None
 	return None
-	
+
 
 def build_data(data, mapinfo):
 	"""
@@ -159,8 +159,8 @@ def build_data(data, mapinfo):
 		divlist = div_h2.find_next_siblings('ul')
 		if divlist is not None:
 			divcards = divlist[0].find_all('li')
-		for divcard in divcards:
-			map_data['divcards'].append(divcard.find('a').text)
+			for divcard in divcards:
+				map_data['divcards'].append(divcard.find('a').text)
 
 	# find the text string "yield(s) one/produce(s) one" to determine the vendor recipe for the map
 	if map_data['shaped'] == 'yes':		# other recipes are already filled via wiki's User:ARTyficial/MapData table
@@ -210,7 +210,9 @@ def convert_data_to_AHK_readable_format(all_data):
 	# lists sorted by descending name length to avoid mismatching ("Lair Map" after "Spider Lair Map" etc.)
 	matchList.sort(key=len, reverse=True)
 	matchList_shaped.sort(key=len, reverse=True)
-	new_data.append('matchList := ["' + '","'.join(matchList_shaped) + '","' + '","'.join(matchList) + '"]\n')
+	
+	new_data.append('mapMatchList := ["' + '","'.join(matchList) + '"]\n')
+	new_data.append('shapedMapMatchList := ["' + '","'.join(matchList_shaped) + '"]\n')	
 
 	for mymap in all_data:
 		if mymap['base'] is None:
