@@ -1,7 +1,7 @@
 #! python3
 # -*- coding: utf-8 -*-
 """
-# scrape_poe_uniques.py - scrapes poe uniques from the wiki using the SMW api
+# scrape_poe_uniques.py - scrapes poe uniques from the wiki using the SMW API
 and then writes them, in their category, one per line.
 """
 
@@ -72,7 +72,7 @@ def remove_wiki_formats(text):
 	
 def clean_up_api_results(api_results):
 	"""
-	Takes the api result and turns it into a list of json objects.
+	Takes the API result and turns it into a list of json objects.
 	Each object gets the three keys 'name', 'impl' and 'expl'.
 	At this stage the mods are still full of wiki formatting and
 	technical annotations, like mods marked with '(Hidden)'.
@@ -106,13 +106,13 @@ def clean_up_api_results(api_results):
 def get_api_results(item_category):
 	"""
 	This function gets the wiki data for given unique item categories.
-	It uses the wiki's SMW api and requests json format.
-	See this HTML version for belts to get a better idea how the api response is structured:
-	https://pathofexile.gamepedia.com/api.php?action=askargs&conditions=Has%20item%20class::Belts|Has%20rarity::Unique&printouts=Has%20implicit%20stat%20text|Has%20explicit%20stat%20text
+	It uses the wiki's SMW API and requests json format.
+	See this HTML version for belts to get a better idea how the API response is structured:
+	https://pathofexile.gamepedia.com/api.php?action=askargs&parameters=limit%3D500&conditions=Has%20item%20class::Belts|Has%20rarity::Unique&printouts=Has%20implicit%20stat%20text|Has%20explicit%20stat%20text
 	"""
 	
 	print('Getting data for ' + item_category)
-	r = requests.get('https://pathofexile.gamepedia.com/api.php?action=askargs&conditions=Has%20item%20class::' + item_category + '|Has%20rarity::Unique&printouts=Has%20implicit%20stat%20text|Has%20explicit%20stat%20text&format=json')
+	r = requests.get('https://pathofexile.gamepedia.com/api.php?action=askargs&parameters=limit%3D500&conditions=Has%20item%20class::' + item_category + '|Has%20rarity::Unique&printouts=Has%20implicit%20stat%20text|Has%20explicit%20stat%20text&format=json')
 	rj = r.json()
 	api_results = rj['query']['results']
 	
@@ -264,7 +264,7 @@ def	convert_to_AHK_script_format(item_list):
 
 		new_data.append(mod_line)
 	
-	print('Manually prepared style variants included for these items: ' + '\n'.join(style_variant_included) + '\n(Make sure they are still correct)')
+	print('\nManually prepared style variants included for these items:\n' + '\n'.join(style_variant_included) + '\n(Make sure they are still correct)\n')
 	
 	return new_data
 
@@ -278,7 +278,7 @@ def define_file_header():
 	data = []
 	d = datetime.datetime.now()
 	now_time = d.strftime('%Y-%m-%d at %H:%M:%S')
-	data.append('; Data from http://pathofexile.gamepedia.com/List_of_unique_items')
+	data.append('; Data from https://pathofexile.gamepedia.com/Path_of_Exile_Wiki using the SMW API.')
 	data.append('; The "@" symbol marks a mod as implicit. This means a separator line will be appended after this mod. If there are multiple implicit mods, mark the last one in line.')
 	data.append('; Comments can be made with ";", blank lines will be ignored.')
 	data.append(';')
