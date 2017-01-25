@@ -1,11 +1,10 @@
 #! python3
-# -*- coding: utf-8 -*-
 """
 # scrape_poe_uniques.py - scrapes poe uniques from the wiki using the SMW API
 and then writes them, in their category, one per line.
 """
 
-import requests, re, datetime, time, os
+import requests, re, datetime, time, json, os
 
 SCRIPTDIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -127,22 +126,6 @@ def get_wiki_data(item_categories):
 	return item_list
 
 
-def create_style_variants():
-	"""
-	manually prepared style variant formatting for each item.
-	obviously static, so in case any of these items get changed, it needs to be adjusted here.
-	"""
-	
-	style_obj = {}
-	
-	style_obj['Doryani\'s Invitation'] = 'Doryani\'s Invitation|@25-35:To Strength|<Style Variant>|| -Physical- |20-30:Increased Physical Damage|30-35:To Fire Resistance|30-35:To Cold Resistance|30-35:To Lightning Resistance|:0.2% of Physical Damage Leeched As Life|:25% reduced Enemy Stun Threshold while using a Flask|| -Fire- |20-30:Increased Fire Damage|300-350:To Armour|30-35:To Cold Resistance|30-35:To Lightning Resistance|:0.2% of Fire Damage Leeched As Life|:Your Flasks grant 10% chance to Ignite while using a Flask|| -Cold- |20-30:Increased Cold Damage|300-350:To Armour|30-35:To Fire Resistance|30-35:To Lightning Resistance|:0.2% of Cold Damage Leeched As Life|:Your Flasks grant 10% chance to Freeze while using a Flask|| -Lightning- |20-30:Increased Lightning Damage|300-350:To Armour|30-35:To Fire Resistance|30-35:To Cold Resistance|:0.2% of Lightning Damage Leeched As Life|:Your Flasks grant 10% chance to Shock while using a Flask'
-	style_obj['Atziri\'s Splendour'] = 'Atziri\'s Splendour|20-24:To All Elemental Resistances|100:Life Gained On Kill|100:Mana Gained On Kill||<Style Variant>| -1 of 7 Def Variants- |380-420:Increased Armour|380-420:Increased Evasion Rating|270-300:Increased Energy Shield|200-220:Incr. Armour And Energy Shield|200-220:Incr. Armour And Evasion Rating|200-220:Incr. Evasion And Energy Shield|270-340:Incr. Armour, Evasion And Energy Shield|| -Life or ES- |(not if triple Def Variant)|90-100:To Maximum Life|90-100:To Maximum Energy Shield'
-	style_obj['Vessel of Vinktar'] = 'Vessel of Vinktar|80-100:Increased Charges Used|:Shocks nearby Enemies during Flask effect|:You are Shocked during Flask effect|:20% of Lightning Damage Leeched As Life During Flask Effect|:20% of Lightning Damage Leeched As Mana During Flask Effect||<1 of 4 Style Variants>||15-70,25-90:Adds Lightning Damage to Spells during Flask effect|25-105,35-130:Adds Lightning Damage to Attacks during Flask effect|:Damage Penetrates 10% Lightning Resistance during Flask effect|:20% of Physical Damage Converted to Lightning during Flask effect'
-	style_obj['Grand Spectrum'] = 'Grand Spectrum|<3 Type Variants>|-Cobalt Jewel-|:Gain 15 Mana per Grand Spectrum||-Crimson Jewel-|:Gain 75 Armour per Grand Spectrum||-Viridian Jewel-|:4% increased Elemental Damage per Grand Spectrum'
-	
-	return style_obj
-
-
 def upcase_first_letter(string):
 	return string[0].upper() + string[1:]
 
@@ -221,7 +204,11 @@ def	convert_to_AHK_script_format(item_list):
 	"""
 	
 	new_data = []
-	prepared_style_variants = create_style_variants()
+	
+	# manually prepared formatting for style variant items
+	with open(SCRIPTDIR + '\\UniqueStyleVariants.json', 'r') as f:
+		prepared_style_variants = json.load(f)
+	
 	style_variant_included = []
 		
 	for item in item_list:
@@ -289,9 +276,9 @@ def define_file_header():
 
 
 def write_list_to_lines(new_data):
-	file = open(SCRIPTDIR + '\\Uniques.txt', 'ab')  # opens file for writing
+	file = open(SCRIPTDIR + '\\Uniques.txt', 'a+b')  # opens file for writing
 	for row in new_data:
-		file.write(row.encode('utf8'))
+		file.write(row.encode('cp1252'))
 		file.write(b'\n')
 	file.close()
 

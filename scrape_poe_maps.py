@@ -1,5 +1,4 @@
 #! python3
-# -*- coding: utf-8 -*-
 """
 # scrape_poe_maps.py - scrapes poe maps from http://pathofexile.gamepedia.com/Map
 # (modified from scrape_poe_uniques.py)
@@ -276,9 +275,9 @@ def convert_data_to_AHK_readable_format(all_data):
 
 
 def write(new_data):
-	file = open(SCRIPTDIR + '\\MapList.txt', 'ab')  # opens file for writing
+	file = open(SCRIPTDIR + '\\MapList.txt', 'a+b')  # opens file for writing
 	for row in new_data:
-		file.write(row.encode('utf8'))
+		file.write(row.encode('cp1252'))
 		file.write(b'\n')
 	file.close()
 
