@@ -206,7 +206,7 @@ def convert_data_to_AHK_readable_format(all_data):
 			unique_map[mymap['base']] = mymap['name']
 
 	# shaped maps before other maps so that the script tries to match "Shaped Xyz Map" before "Xyz Map"
-	# lists sorted by descending name length to avoid mismatching ("Lair Map" after "Spider Lair Map" etc.)
+	# lists sorted by descending name length to avoid mismatching ("Spider Lair Map" before "Lair Map" etc.)
 	matchList.sort(key=len, reverse=True)
 	matchList_shaped.sort(key=len, reverse=True)
 	
@@ -236,12 +236,14 @@ def convert_data_to_AHK_readable_format(all_data):
 			#		vendor_lines.append('`n- Produced by three ' + vend + 's')
 			if mymap['producedby']:
 				info_lines.append('`nProduced by: ' + mymap['producedby'])
+			else:
+				info_lines.append('`nProduced by: none')
 			if mymap['upgradesto']:
 				info_lines.append('`nUpgrades to: ' + mymap['upgradesto'])
 			else:
 				info_lines.append('`nUpgrades to: ?')
 			if mymap['connectedto']:
-				info_lines.append('`nConnected to: ' + mymap['connectedto'])
+				info_lines.append('`nAlso connected to: ' + mymap['connectedto'])
 			if len(info_lines) > 0:
 				line += '`n'
 				for il in info_lines:

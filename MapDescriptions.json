@@ -1,228 +1,228 @@
 {
 	"maps": {
-		"Abyss Map": "Boss: The Infernal King (based on: King Kaom)`n`nDifficulty: 3/5, Layout: B",
+		"Abyss Map": "Boss: The Infernal King (based on: King Kaom)`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Academy Map": "Boss: The Arbiter of Knowledge (based on: Trinian, Intellectus Prime)`nThrows Books, spawns a Tornado for every hit taken`n`nDifficulty: 4/5, Layout: C",
+		"Academy Map": "Boss: The Arbiter of Knowledge (based on: Trinian, Intellectus Prime)`nThrows Books, spawns a Tornado for every hit taken`n`nDifficulty: 4/5, Layout: C, Boss Arena: Yes",
 
-		"Acid Lakes Map": "Boss: Mirage of Bones (based on: Nightwane)`nReal one shoots black arrows and moves,`nthe fake ones stand still`n`nDifficulty: 3/5, Layout: A",
+		"Acid Lakes Map": "Boss: Mirage of Bones (based on: Nightwane)`nReal one shoots black arrows and moves,`nthe fake ones stand still`n`nDifficulty: 4/5, Layout: A, Boss Arena: Yes",
 
-		"Arachnid Nest Map": "Boss: Spinner of False Hope (based on: The Weaver)`n`nDifficulty: 3/5, Layout: B",
+		"Arachnid Nest Map": "Boss: Spinner of False Hope (based on: The Weaver)`n`nDifficulty: 5/5, Layout: B, Boss Arena: Yes (The Loom Chamber)",
 
-		"Arachnid Tomb Map": "Boss: Hybrid Widow (based on: Black Death)`nFlicker Strike, Viper Strike`n`nDifficulty: 2/5, Layout: A",
+		"Arachnid Tomb Map": "Boss: Hybrid Widow (based on: Black Death)`nFlicker Strike, Viper Strike`n`nDifficulty: 2/5, Layout: A, Boss Arena: Yes",
 
-		"Arcade Map": "Bosses: Herald of Ash, Herald of Thunder (based on: Voltaic Seal, Infernal Seal)`nFirestorm, Shock Nova`n`nDifficulty: 1/5, Layout: B",
+		"Arcade Map": "Bosses (2): Herald of Ash, Herald of Thunder (based on: Voltaic Seal, Infernal Seal)`nFirestorm, Shock Nova`n`nDifficulty: 1/5, Layout: B, Boss Arena: No",
 
-		"Arena Map": "Bosses: Avatar of the Forge, Avatar of the Huntress, Avatar of the Skies`n(based on: Grand Arena Trio)`nPunture Trapper from archer`n`nDifficulty: 3/5, Layout: C",
+		"Arena Map": "Bosses (3): Avatar of the Forge, Avatar of the Huntress, Avatar of the Skies`n(based on: Grand Arena Trio)`nPuncture Trapper from archer`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Arid Lake Map": "Boss: Drought-Maddened Rhoa (based on: Oozeback Bloom)`nChaos Rhoa, Enrages and drops more loot if eggs are broken`n`nDifficulty: 3/5, Layout: B",
+		"Arid Lake Map": "Boss: Drought-Maddened Rhoa (based on: Oozeback Bloom)`nChaos Rhoa, Enrages and drops more loot if eggs are broken`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Armoury Map": "Boss: Warmonger (based on: General Gravicius)`n`nDifficulty: 1/5, Layout: B",
+		"Armoury Map": "Boss: Warmonger (based on: General Gravicius)`n`nDifficulty: 2/5, Layout: B, Boss Arena: No",
 
-		"Arsenal Map": "Boss: The Steel Soul (based on: Animated Weapon)`nLacerate`n`nDifficulty: 3/5, Layout: C",
+		"Arsenal Map": "Boss: The Steel Soul (based on: Animated Weapon)`nLacerate`n`nDifficulty: 2/5, Layout: C, Boss Arena: Yes",
 
-		"Ashen Wood Map": "Boss: Lord of the Ashen Arrow (based on: Bandit)`nFlame Dash, Blast Rain`n`nDifficulty: 1/5, Layout: B",
+		"Ashen Wood Map": "Boss: Lord of the Ashen Arrow (based on: Bandit)`nFlame Dash, Blast Rain`n`nDifficulty: 2/5, Layout: B, Boss Arena: No",
 
-		"Atoll Map": "Boss: Puruna, the Challenger (based on: Kuduku)`nFrost Bolt, Ice Wave, Ice Nova. Ice Nova can one shot.`n`nDifficulty: 5/5, Layout: A",
+		"Atoll Map": "Boss: Puruna, the Challenger (based on: Kuduku)`nFrost Bolt, Ice Wave, Ice Nova. Ice Nova can one shot.`n`nDifficulty: 4/5, Layout: A, Boss Arena: Yes",
 
-		"Barrows Map": "Boss: Beast of the Pits (based on: The Great White Beast)`nCleave, Charge`n`nDifficulty: 3/5, Layout: B",
+		"Barrows Map": "Boss: Beast of the Pits (based on: The Great White Beast)`nCleave, Charge`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes",
 
-		"Bazaar Map": "Boss: Ancient Sculptor (based on: Sculptor)`nAnimated 2 Statue Bosses`n`nDifficulty: 2/5, Layout: B",
+		"Bazaar Map": "Boss: Ancient Sculptor (based on: Sculptor)`nReleases two statue bosses`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Beach Map": "Boss: Glace (based on: Hailrake)`nIce Spear, Glacial Cascade`n`nDifficulty: 2/5, Layout: A",
+		"Beach Map": "Boss: Glace (based on: Hailrake)`nIce Spear, Glacial Cascade`n`nDifficulty: 2/5, Layout: A, Boss Arena: Yes",
 
-		"Beacon Map": "Bosses: Uruk Baleh, El'Abin, Leli Goya, Bin'aia`n(based on: Redblade Warband)`nFire Warband Pack.`nCan drop blue helmets with special affix:`n 10% of Physical Damage taken as Fire Damage`n`nDifficulty: 5/5, Layout: B",
+		"Beacon Map": "Boss (1 of 4): Uruk Baleh, El'Abin, Leli Goya, Bin'aia`n(based on: Redblade Warband)`nFire Warband Pack.`nCan drop blue helmets with special affix:`n 10% of Physical Damage taken as Fire Damage`n`nDifficulty: 4/5, Layout: A, Boss Arena: No",
 
-		"Bog Map": "Boss: Skullbeak (based on: Skeleton Rhoa)`nBreak nests to enrage boss for more loot`n`nDifficulty: 1/5, Layout: B",
+		"Bog Map": "Boss: Skullbeak (based on: Skeleton Rhoa)`nBreak nests to enrage boss for more loot`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Burial Chambers Map": "Boss: Witch of the Cauldron (based on: Alira)`nSoul Eater, Detonate Dead`n`nDifficulty: 3/5, Layout: C",
+		"Burial Chambers Map": "Boss: Witch of the Cauldron (based on: Alira)`nSoul Eater, Detonate Dead`n`nDifficulty: 2/5, Layout: B, Boss Arena: Yes",
 
-		"Canyon Map": "Bosses: Gnar, Eater of Carrion Stonebeak, Battle Fowl`n(based on: Eyepecker, Steelchaw)`nTry to kill both at the same time or kill bird then dog`n`nDifficulty: 5/5, Layout: A",
+		"Canyon Map": "Bosses (2): Gnar, Eater of Carrion; Stonebeak, Battle Fowl`n(based on: Eyepecker, Steelchaw)`nTry to kill both at the same time or kill bird then dog`n`nDifficulty: 5/5, Layout: A, Boss Arena: No",
 
-		"Castle Ruins Map": "Boss: Leif, the Swift-Handed (based on: Kraityn)`n`nDifficulty: 1/5, Layout: B",
+		"Castle Ruins Map": "Boss: Leif, the Swift-Handed (based on: Kraityn)`n`nDifficulty: 2/5, Layout: B, Boss Arena: Yes",
 
-		"Catacombs Map": "Boss: Xixic, High Necromancer (based on: Necromancer)`n`nDifficulty: 1/5, Layout: C",
+		"Catacombs Map": "Boss: Xixic, High Necromancer (based on: Necromancer)`n`nDifficulty: 2/5, Layout: C, Boss Arena: No",
 
-		"Cavern Map": "Boss: The Eroding One (based on: Stone Golem)`n`nDifficulty: 3/5, Layout: C",
+		"Cavern Map": "Boss: The Eroding One (based on: Stone Golem)`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Cells Map": "Boss: Megaera (based on: Fire Fury)`nHigh Fire Damage`n`nDifficulty: 4/5, Layout: C",
+		"Cells Map": "Boss: Megaera (based on: Fire Fury)`nHigh Fire Damage`n`nDifficulty: 4/5, Layout: C, Boss Arena: No",
 
-		"Cemetery Map": "Bosses: Champion of Frost, Thunderskull, Steelpoint the Avenger`n(based on: Chatters, Ironpoint the Forsaken)`nArcher hits hard`n`nDifficulty: 3/5, Layout: B",
+		"Cemetery Map": "Bosses (3): Champion of Frost, Thunderskull, Steelpoint the Avenger`n(based on: Chatters, Skeleton Archmage, Ironpoint the Forsaken)`nArcher hits hard`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Channel Map": "Boss: The Winged Death (based on: The Hundred Foot Shadow)`n`nDifficulty: 4/5, Layout: B",
+		"Channel Map": "Boss: The Winged Death (based on: The Hundred Foot Shadow)`n`nDifficulty: 4/5, Layout: B, Boss Arena: No",
 
-		"Chateau Map": "Boss: Hephaeus, The Hammer (based on: Argus)`n`nDifficulty: 3/5, Layout: B",
+		"Chateau Map": "Boss: Hephaeus, The Hammer (based on: Argus)`n`nDifficulty: 4/5, Layout: C, Boss Arena: No",
 
-		"Colonnade Map": "Boss: Tyrant (based on: General Gravicius)`nHigh ES`n`nDifficulty: 4/5, Layout: A",
+		"Colonnade Map": "Boss: Tyrant (based on: General Gravicius)`nHigh ES`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Colosseum Map": "Boss: Ambrius, Legion Slayer (based on: Daresso, King of Swords)`n`nDifficulty: 5/5, Layout: A",
+		"Colosseum Map": "Boss: Ambrius, Legion Slayer (based on: Daresso, King of Swords)`n`nDifficulty: 5/5, Layout: A, Boss Arena: Yes",
 
-		"Core Map": "Boss: Eater of Souls (based on: Malachai)`nMust also kill the 3 organ bosses`n`nDifficulty: 5/5, Layout: C",
+		"Core Map": "Boss: Eater of Souls (based on: Malachai)`nMust also kill the 3 organ bosses`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
-		"Courtyard Map": "Bosses: Oriath's Vengence, Oriath's Vigil, Oriath's Virtue`n(based on: Imperator Stantinus Bitterblade, Draconarius Wilhelm Flamebrand, Compulsor Octavia Sparkfist)`nDominus' Human Guards`n`nDifficulty: 2/5, Layout: B",
+		"Courtyard Map": "Bosses (3): Oriath's Vengeance, Oriath's Vigil, Oriath's Virtue`n(based on: Imperator Stantinus Bitterblade, Draconarius Wilhelm Flamebrand, Compulsor Octavia Sparkfist)`nDominus' Human Guards`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Coves Map": "Boss: Telvar, the Inebriated (based on: Stone Golem)`nPhys Damage`n`nDifficulty: 4/5, Layout: B",
+		"Coves Map": "Boss: Telvar, the Inebriated (based on: Stone Golem)`nPhys Damage`n`nDifficulty: 4/5, Layout: B, Boss Arena: No",
 
-		"Crematorium Map": "Boss: Fire and Fury (based on: Merveil's Fire Daughter)`nBoss area has 4 magma areas at the corner which you can turn off`n`nDifficulty: 3/5, Layout: C",
+		"Crematorium Map": "Boss: Fire and Fury (based on: Merveil's Fire Daughter)`nBoss area has 4 magma areas at the corner which you can turn off`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes",
 
-		"Crypt Map": "Boss: Pagan Bishop of Agony (based on: Archbishop Geofri the Abashed)`nTemp Chains`n`nDifficulty: 3/5, Layout: C",
+		"Crypt Map": "Boss: Pagan Bishop of Agony (based on: Archbishop Geofri the Abashed)`nTemp Chains`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Crystal Ore Map": "Boss: Shrieker Eihal, Breaker Toruul (based on: Voidscream, Hammerstorm)`n`nDifficulty: 1/5, Layout: B",
+		"Crystal Ore Map": "Bosses (2): Shrieker Eihal, Breaker Toruul (based on: Voidscream, Hammerstorm)`n`nDifficulty: 1/5, Layout: B, Boss Arena: Yes (one each)",
 
-		"Dark Forest Map": "Boss: The Cursed King (based on: Rigwald)`nWhen shooting wolves - stand behind trees,`nwhen in wolf form - run around`n`nDifficulty: 4/5, Layout: B",
+		"Dark Forest Map": "Boss: The Cursed King (based on: Rigwald)`nWhen shooting wolves - stand behind trees,`nwhen in wolf form - run around`n`nDifficulty: 5/5, Layout: B, Boss Arena: Yes",
 
-		"Desert Map": "Boss: Mirage of Bones (based on: Nightwane)`nReal one shoots black arrows and moves, the fake ones stand still`n`nDifficulty: 4/5, Layout: C",
+		"Desert Map": "Boss: Mirage of Bones (based on: Nightwane)`nReal one shoots black arrows and moves, the fake ones stand still`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Dunes Map": "Boss: The Blacksmith (based on: Hillock)`nLeap Slam, Heavy Strike`n`nDifficulty: 3/5, Layout: B",
+		"Dunes Map": "Boss: The Blacksmith (based on: Hillock)`nLeap Slam, Heavy Strike`n`nDifficulty: 3/5, Layout: B, Boss Arena: No",
 
-		"Dungeon Map": "Boss: Penitentiary Incarcerator (based on: Brutus, Lord Incarcerator)`nHits Hard`n`nDifficulty: 4/5, Layout: C",
+		"Dungeon Map": "Boss: Penitentiary Incarcerator (based on: Brutus, Lord Incarcerator)`nHits Hard`n`nDifficulty: 4/5, Layout: C, Boss Arena: Yes (Opening)",
 
-		"Estuary Map": "Boss: Sumter the Twisted (based on: Humanoid Mage)`nFire/Cold Damage`n`nDifficulty: ?/5, Layout: B",
+		"Estuary Map": "Boss: Sumter the Twisted (based on: Humanoid Mage)`nFire/Cold Damage`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Excavation Map": "Bosses: Champion of the Hollows, Lord of the Hollows, Messenger of the Hollows`n(based on: Pocked Goliath, Pikerivet, The Burning Man)`nOne of the bosses has a disc under it, meanwhile the other bosses are invincible.`nThe disc moves around every 7 seconds so you have to keep changing your target.`n`nDifficulty: 5/5, Layout: C",
+		"Excavation Map": "Bosses (3): Champion of the Hollows, Lord of the Hollows, Messenger of the Hollows`n(based on: Pocked Goliath, Pikerivet, The Burning Man)`nOne of the bosses has a disc under it, meanwhile the other bosses are invincible.`nThe disc moves around every 7 seconds so you have to keep changing your target.`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
-		"Factory Map": "Boss: Mother Phyia (based on: Stranglecharm)`nVortex, Frostbolt`n`nDifficulty: 1/5, Layout: B",
+		"Factory Map": "Boss: Mother Phyia (based on: Stranglecharm)`nVortex, Frostbolt`n`nDifficulty: 2/5, Layout: C, Boss Arena: Yes",
 
-		"Forge of the Phoenix Map": "Boss: Guardian of the Phoenix (based on: )`nFire Damage Melee`n`nDifficulty: 5/5, Layout: B",
+		"Forge of the Phoenix Map": "Boss: Guardian of the Phoenix (based on: )`nFire Damage Melee`n`nDifficulty: 5/5, Layout: B, Boss Arena: Yes",
 
-		"Ghetto Map": "Boss: The Reaver (based on: Perpetus)`nBear Trap, EK, Whirling Blades`n`nDifficulty: 3/5, Layout: B",
+		"Ghetto Map": "Boss: The Reaver (based on: Perpetus)`nBear Trap, EK, Whirling Blades`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Gorge Map": "Boss: Rek'tar, the Breaker (based on: Goatman)`nRapid Jumps, Temp Chains/Onslaught Not recommended. Attack when tired.`n`nDifficulty: 3/5, Layout: A",
+		"Gorge Map": "Boss: Rek'tar, the Breaker (based on: Goatman)`nRapid Jumps, Temp Chains/Onslaught Not recommended. Attack when tired.`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Graveyard Map": "Boss: Litanius, the Black Prayer (based on: Archbishop Geofri the Abashed)`nStrong Projectiles`n`nDifficulty: 4/5, Layout: B",
+		"Graveyard Map": "Boss: Litanius, the Black Prayer (based on: Archbishop Geofri the Abashed)`nStrong Projectiles`n`nDifficulty: 2/5, Layout: B, Boss Arena: Yes",
 
-		"Grotto Map": "Boss: Void Anomaly (based on: Chaos Sentinel)`nChaos Firestorm, Chaos DoT`n`nDifficulty: 3/5, Layout: C",
+		"Grotto Map": "Boss: Void Anomaly (based on: Chaos Sentinel)`nChaos Firestorm, Chaos DoT`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes",
 
-		"High Gardens Map": "Boss: Suncalled Asha (based on: Soulmourn)`nFire Damage`n`nDifficulty: 5/5, Layout: B",
+		"High Gardens Map": "Boss: Suncalled Asha (based on: Soulmourn)`nFire Damage`n`nDifficulty: 3/5, Layout: A, Boss Arena: No",
 
-		"Ivory Temple Map": "Boss: Platina, Auriot, Rhodion, Pallias, Argient or Rheniot`n(based on: Perandus Boss)`nSpawns one randomly chosen boss`n`nDifficulty: 4/5, Layout: A",
+		"Ivory Temple Map": "Boss (1 of 6): Platina, Auriot, Rhodion, Pallias, Argient or Rheniot`n(based on: Perandus Boss)`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes",
 
-		"Jungle Valley Map": "Boss: Queen of the Great Tangle (based on: The Weaver)`n`nDifficulty: 2/5, Layout: A",
+		"Jungle Valley Map": "Boss: Queen of the Great Tangle (based on: The Weaver)`n`nDifficulty: 2/5, Layout: A, Boss Arena: Yes (The Loom Chamber)",
 
-		"Lair Map": "Boss: Lycius, Midnight's Howl (based on: Rigwald)`nWhen shooting wolves - stand behind trees, when in wolf form - run around`n`nDifficulty: 5/5, Layout: A",
+		"Lair Map": "Boss: Lycius, Midnight's Howl (based on: Rigwald)`nWhen shooting wolves - stand behind trees, when in wolf form - run around`n`nDifficulty: 5/5, Layout: B, Boss Arena: Yes",
 
-		"Lair of the Hydra Map": "Boss: Guardian of the Hydra`nCold Damage Archer`n`nDifficulty: 5/5, Layout: ?",
+		"Lair of the Hydra Map": "Boss: Guardian of the Hydra`nCold Damage Archer`n`nDifficulty: 5/5, Layout: A, Boss Arena: Yes",
 
-		"Malformation Map": "Boss: Nightmare Manifest (based on: Piety, the Abomination)`nVery unpopular map`n`nDifficulty: 5/5, Layout: C",
+		"Malformation Map": "Boss: Nightmare Manifest (based on: Piety, the Abomination)`nVery unpopular map`n`nDifficulty: 4/5, Layout: C, Boss Arena: Yes",
 
-		"Marshes Map": "Boss: Tore, Towering Ancient (based on: Barkhul)`nCyclone`n`nDifficulty: 3/5, Layout: B",
+		"Marshes Map": "Boss: Tore, Towering Ancient (based on: Barkhul)`nCyclone`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Maze Map": "Boss: Shadow of the Vaal (based on: Vaal Oversoul)`n`nDifficulty: 4/5, Layout: C",
+		"Maze Map": "Boss: Shadow of the Vaal (based on: Vaal Oversoul)`n`nDifficulty: 4/5, Layout: C, Boss Arena: No",
 
-		"Maze of the Minotaur Map": "Boss: Guardian of the Minotaur`nLarge Aoe, Charge, Ground Slam, Leap Slam`n`nDifficulty: 5/5, Layout: A",
+		"Maze of the Minotaur Map": "Boss: Guardian of the Minotaur`nLarge Aoe, Charge, Ground Slam, Leap Slam`n`nDifficulty: 5/5, Layout: A, Boss Arena: Yes",
 
-		"Mesa Map": "Boss: Oak the Mighty (based on: Oak)`nEnduring Cry, Immortal Call, Leap Slam`n`nDifficulty: 2/5, Layout: A",
+		"Mesa Map": "Boss: Oak the Mighty (based on: Oak)`nEnduring Cry, Immortal Call, Leap Slam`n`nDifficulty: 2/5, Layout: A, Boss Arena: Yes",
 
-		"Mineral Pools Map": "Boss: Merveil, the Reflection (based on: Merveil, the Siren)`nBoth Phases`n`nDifficulty: ?/5, Layout: ?",
+		"Mineral Pools Map": "Boss: Merveil, the Reflection (based on: Merveil, the Siren)`nBoth Phases`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Mud Geyser Map": "Boss: Tunneltrap (based on: Devourer)`nFarshot, Burrow`n`nDifficulty: 5/5, Layout: B",
+		"Mud Geyser Map": "Boss: Tunneltrap (based on: Devourer)`nFarshot, Burrow`n`nDifficulty: 5/5, Layout: B, Boss Arena: No",
 
-		"Museum Map": "Boss: He of Many Pieces (based on: Maligaro)`nHigh Phys and Chaos Damage`n`nDifficulty: 5/5, Layout: C",
+		"Museum Map": "Boss: He of Many Pieces (based on: Maligaro)`nHigh Phys and Chaos Damage`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
-		"Necropolis Map": "Boss: Burtok, Conjuror of Bones (based on: Colossal Bonestalker)`n`nDifficulty: ?/5, Layout: C",
+		"Necropolis Map": "Boss: Burtok, Conjuror of Bones (based on: Colossal Bonestalker)`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes (Sarcophagus -> Stairs)",
 
-		"Oasis Map": "Boss: Planus, Hollow Soul (based on: Voll)`n`nDifficulty: 3/5, Layout: B",
+		"Oasis Map": "Boss: Planus, Hollow Soul (based on: Voll)`n`nDifficulty: 3/5, Layout: B, Boss Arena: No",
 
-		"Orchard Map": "Boss: Vision of Justice (based on: Izaro's Spirit)`nChaos and Fire fountains,`nDo not map with GMP map mod`n`nDifficulty: 5/5, Layout: C",
+		"Orchard Map": "Boss: Vision of Justice (based on: Izaro's Spirit)`nChaos and Fire fountains,`nDo not map with GMP map mod`n`nDifficulty: 4/5, Layout: C, Boss Arena: Yes",
 
-		"Overgrown Ruin Map": "Boss: 8 Bosses (based on: Chaos Warband Pack)`nCyclone, EK, Traps`nCan drop blue weapons with special affixes:`n  Damage Penetrates (6 to 10)% <Element> Resistance`n`nDifficulty: 5/5, Layout: C",
+		"Overgrown Ruin Map": "Bosses (2 of 8): Berrots, Invari, Kalria, Lokan, Marchak, Morgrants, Rama, Vessider (based on: Chaos Warband Pack)`nCyclone, EK, Traps`nCan drop blue weapons with special affixes:`n  Damage Penetrates (6 to 10)% <Element> Resistance`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
-		"Overgrown Shrine Map": "Boss: The Wicked One (based on: Crematorium Piety)`nHigh Lightning Damage`n`nDifficulty: 5/5, Layout: C",
+		"Overgrown Shrine Map": "Boss: The Wicked One (based on: Crematorium Piety)`nHigh Lightning Damage`n`nDifficulty: 4/5, Layout: C, Boss Arena: No",
 
-		"Palace Map": "Boss: God's Chosen, The Hallowed Husk (based on: Dominous (both Phases))`n`nDifficulty: 5/5, Layout: C",
+		"Palace Map": "Boss: God's Chosen, The Hallowed Husk (based on: Dominus (both Phases))`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
-		"Peninsula Map": "Boss: Titan of the Grove (based on: Rock Golem)`nAllies Cannot Die`n`nDifficulty: 2/5, Layout: A",
+		"Peninsula Map": "Boss: Titan of the Grove (based on: Rock Golem)`nAllies Cannot Die`n`nDifficulty: 2/5, Layout: A, Boss Arena: Yes",
 
-		"Phantasmagoria Map": "Boss: Erythrophagia (based on: Doedre Darktongue)`n`nDifficulty: 3/5, Layout: A",
+		"Phantasmagoria Map": "Boss: Erythrophagia (based on: Doedre Darktongue)`n`nDifficulty: 2/5, Layout: A, Boss Arena: Yes",
 
-		"Pier Map": "Boss: Ancient Architect`nSpectral Throw`nIs protected by traps (sub-areas called Gauntlet),`nmoves into next room when 1/3 and when 2/3 of his life is lost`n`nDifficulty: 5/5, Layout: C",
+		"Pier Map": "Boss: Ancient Architect`nSpectral Throw`nIs protected by traps (sub-areas called Gauntlet),`nmoves into next room when 1/3 and when 2/3 of his life is lost`n`nDifficulty: 2/5, Layout: C, Boss Arena: Yes",
 
-		"Pit Map": "Boss: Tore, Towering Ancient (based on: Barkhul)`nSpawns lots of mobs`n`nDifficulty: 4/5, Layout: C",
+		"Pit Map": "Boss: Tore, Towering Ancient (based on: Barkhul)`nSpawns lots of mobs`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Pit of the Chimera Map": "Boss: Guardian of the Chimera`nClaw based attacks, Fast teleports,`nWhen mist appears run into it to find boss`n`nDifficulty: 5/5, Layout: B",
+		"Pit of the Chimera Map": "Boss: Guardian of the Chimera`nClaw based attacks, Fast teleports,`nWhen mist appears run into it to find boss`n`nDifficulty: 5/5, Layout: B, Boss Arena: Yes",
 
-		"Plateau Map": "Boss: Puruna, Poporo (based on: Totems)`n`nDifficulty: ?/5, Layout: A",
+		"Plateau Map": "Bosses (2): Puruna, Poporo (based on: Totems)`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Plaza Map": "Boss: The Goddess`nMortar Attacks`n`nDifficulty: 5/5, Layout: B",
+		"Plaza Map": "Boss: The Goddess`nMortar Attacks`n`nDifficulty: 5/5, Layout: B, Boss Arena: Yes",
 
-		"Precinct Map": "Boss: Multiple Rogue Exiles`n`nDifficulty: 3/5, Layout: B",
+		"Precinct Map": "Bosses: Varying amount of Rogue Exiles`n`nDifficulty: 4/5, Layout: B, Boss Arena: No",
 
-		"Primordial Pool Map": "Boss: Nightmare Omen (based on: Malachai, the Nightmare)`nFirst Form Only`n`nDifficulty: 3/5, Layout: B",
+		"Primordial Pool Map": "Boss: Nightmare Omen (based on: Malachai, the Nightmare)`nFirst Form Only`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Promenade Map": "Boss: Blackguard Avenger, Blackguard Tempest (based on: Captain Arteri)`nLightning Thorns`n`nDifficulty: 3/5, Layout: A",
+		"Promenade Map": "Boss: Blackguard Avenger, Blackguard Tempest (based on: Captain Arteri)`nLightning Thorns (reflects lightning damage while active)`n`nDifficulty: 3/5, Layout: A, Boss Arena: No",
 
-		"Quarry Map": "Boss: Avatar of Undoing (based on: Chaos Golem)`nChaos Fire Storm`n`nDifficulty: 4/5, Layout: B",
+		"Quarry Map": "Boss: Avatar of Undoing (based on: Chaos Golem)`nChaos Fire Storm`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Quay Map": "Boss: Unravelling Horror (based on: Knitted Horror)`nPuncture, Must Kill 4 Times`n`nDifficulty: 5/5, Layout: A",
+		"Quay Map": "Boss: Unravelling Horror (based on: Knitted Horror)`nPuncture, Must Kill 4 Times`n`nDifficulty: 4/5, Layout: A, Boss Arena: Yes",
 
-		"Racecourse Map": "Bosses: Shredder of Gladiators, Crusher of Gladiators, Bringer of Blood`n(based on: Centaur, Humanoid, Flame Hellion)`nHumanoid bleed on hit, Centaur reflect aura`n`nDifficulty: 5/5, Layout: A",
+		"Racecourse Map": "Bosses (3): Shredder of Gladiators, Crusher of Gladiators, Bringer of Blood`n(based on: Centaur, Humanoid, Flame Hellion)`nHumanoid bleed on hit, Centaur reflect aura`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Ramparts Map": "Boss: Legius Garhall (based on: Guard Captain)`nLeap Slam, Cleave, Double Strike`n`nDifficulty: 4/5, Layout: A",
+		"Ramparts Map": "Boss: Legius Garhall (based on: Guard Captain)`nLeap Slam, Cleave, Double Strike`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Reef Map": "Boss: First Mate Crastus`nMortar, Fire Trap`n`nDifficulty: 3/5, Layout: B",
+		"Reef Map": "Boss: First Mate Crastus`nMortar, Fire Trap`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Residence Map": "Boss: The High Templar (based on: Dominus)`nFirst Form Only`n`nDifficulty: 5/5, Layout: B",
+		"Residence Map": "Boss: The High Templar (based on: Dominus)`nFirst Form Only`n`nDifficulty: 5/5, Layout: B, Boss Arena: Yes",
 
-		"Scriptorium Map": "Boss: Gisale, Though Theif (based on: Shavronne)`nLightning Damage`n`nDifficulty: 5/5, Layout: B",
+		"Scriptorium Map": "Boss: Gisale, Thought Thief (based on: Shavronne)`nLightning Thorns (reflects lightning damage while active)`n`nDifficulty: 4/5, Layout: A, Boss Arena: Yes",
 
-		"Sewer Map": "Boss: Arachnoxia (based on: Black Death)`nChaos Damage`n`nDifficulty: 3/5, Layout: C",
+		"Sewer Map": "Boss: Arachnoxia (based on: Black Death)`nChaos Damage`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Shipyard Map": "Boss: Musky Grenn, Susara, Lussi Roth (based on: Brinerot Warband)`nLightning Warband Pack`nCan drop blue gloves with special affix:`n  Your Flasks grant 30% increased Rarity of Items found while using a Flask`n`nDifficulty: ?/5, Layout: B",
+		"Shipyard Map": "Boss: Musky Grenn, Susara, Lussi Roth (based on: Brinerot Warband)`nLightning Warband Pack`nCan drop blue gloves with special affix:`n  Your Flasks grant 30% increased Rarity of Items found while using a Flask`n`nDifficulty: 3/5, Layout: B, Boss Arena: No",
 
-		"Shore Map": "Boss: Belcer, Pirate Lord (based on: Fairgraves Eternal)`n`nDifficulty: 3/5, Layout: B",
+		"Shore Map": "Boss: Belcer, Pirate Lord (based on: Fairgraves Eternal)`n`nDifficulty: 3/5, Layout: B, Boss Arena: No",
 
-		"Shrine Map": "Boss: Piety the Empyrian (based on: Piety)`n`nDifficulty: 4/5, Layout: B",
+		"Shrine Map": "Boss: Piety the Empyrian (based on: Piety)`n`nDifficulty: 4/5, Layout: B, Boss Arena: Not right away",
 
-		"Spider Forest Map": "Boss: Enticer of Rot (based on: Alira)`nBlood Balls`n`nDifficulty: 3/5, Layout: C",
+		"Spider Forest Map": "Boss: Enticer of Rot (based on: Alira)`nBlood Balls`n`nDifficulty: 2/5, Layout: C, Boss Arena: Yes",
 
-		"Spider Lair Map": "Boss: Thraxia (based on: The Bone Queen)`nDetonate Dead on Boss Death`n`nDifficulty: 3/5, Layout: B",
+		"Spider Lair Map": "Boss: Thraxia (based on: The Bone Queen)`nDetonate Dead on Boss Death`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes (The Loom Chamber)",
 
-		"Springs Map": "Boss: Aulen Greychain (based on: Oak)`nAncestral Totems`n`nDifficulty: 3/5, Layout: B",
+		"Springs Map": "Boss: Aulen Greychain (based on: Oak)`nAncestral Totems`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Strand Map": "Bosses: Massier, Master of the Blade (based on: Calaf, Kraityn)`n`nDifficulty: 3/5, Layout: A",
+		"Strand Map": "Bosses (2): Massier, Master of the Blade (based on: Calaf, Kraityn)`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Sulphur Wastes Map": "Boss: Warband Pack`nHigh Cold Damage`nCan drop blue boots with special affix:`n   Cannot Be Frozen`n`nDifficulty: 5/5, Layout: B",
+		"Sulphur Wastes Map": "Boss: Warband Pack`nHigh Cold Damage`nCan drop blue boots with special affix:`n   Cannot Be Frozen`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Temple Map": "Boss: Riftwalker`nFrostbolt, Vortex. Watch out for slam`n`nDifficulty: 3/5, Layout: C",
+		"Temple Map": "Boss: Riftwalker`nFrostbolt, Vortex. Watch out for slam`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes",
 
-		"Terrace Map": "Boss: Sallazzang (based on: Plumed Chimeral)`nSummons Devourers`n`nDifficulty: 4/5, Layout: C",
+		"Terrace Map": "Boss: Sallazzang (based on: Plumed Chimeral)`nSummons Devourers`n`nDifficulty: 4/5, Layout: C, Boss Arena: Yes",
 
-		"Thicket Map": "Boss: The Primal One (based on: Blood Chieftan)`nSunder`n`nDifficulty: 1/5, Layout: B",
+		"Thicket Map": "Boss: The Primal One (based on: Blood Chieftain)`nSunder`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
-		"Torture Chamber Map": "Boss: Shock and Horror (based on: Sea Witch)`nLightning Damage`n`nDifficulty: 4/5, Layout: C",
+		"Torture Chamber Map": "Boss: Shock and Horror (based on: Sea Witch)`nLightning Damage`n`nDifficulty: 4/5, Layout: C, Boss Arena: Yes",
 
-		"Tower Map": "Boss: Carnage (based on: Kole)`nChain Pull, Ground Smash`n`nDifficulty: 3/5, Layout: B",
+		"Tower Map": "Boss: Carnage (based on: Kole)`nChain Pull, Ground Smash`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Tropical Island Map": "Boss: Blood Progenitor (based on: Chieftan)`n`nDifficulty: 1/5, Layout: A",
+		"Tropical Island Map": "Boss: Blood Progenitor (based on: Chieftain)`n`nDifficulty: 2/5, Layout: A, Boss Arena: No",
 
-		"Underground River Map": "Boss: It That Fell (based on: Q'uru)`nEarthquake`n`nDifficulty: 3/5, Layout: A",
+		"Underground River Map": "Boss: It That Fell (based on: Q'uru)`nEarthquake`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Underground Sea Map": "Boss: Merveil, the Reflection (based on: Merveil, the Siren)`nMerveil First Form`n`nDifficulty: 2/5, Layout: C",
+		"Underground Sea Map": "Boss: Merveil, the Reflection (based on: Merveil, the Siren)`nMerveil First Form`n`nDifficulty: 2/5, Layout: C, Boss Arena: Yes",
 
-		"Vaal City Map": "Boss: Lady Stormflay (based on: Whipping Miscreation)`nLightning Projectiles`n`nDifficulty: 4/5, Layout: ",
+		"Vaal City Map": "Boss: Lady Stormflay (based on: Whipping Miscreation)`nLightning Projectiles`n`nDifficulty: 4/5, Layout: C, Boss Arena: No",
 
-		"Vaal Pyramid Map": "Boss: The Fallen Queen, The Hollow Lady, The Broken Prince`n(based on: Three Non-human Dominus guards)`nSome chaos damage from Fallen Queen,`nspawn in time-based order`n`nDifficulty: 5/5, Layout: C",
+		"Vaal Pyramid Map": "Boss: The Fallen Queen, The Hollow Lady, The Broken Prince`n(based on: Three Non-human Dominus guards)`nSome chaos damage from Fallen Queen,`nspawn in time-based order`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
-		"Vaal Temple Map": "Bosses: K'aj A'alai, K'aj Q'ura, K'aj Y'ara'az`n(based on: Trio from Atziri)`nObtained by Corrupting T15`n`nDifficulty: 5/5, Layout: C",
+		"Vaal Temple Map": "Bosses (3): K'aj A'alai, K'aj Q'ura, K'aj Y'ara'az`n(based on: Trio from Atziri)`nObtained by Corrupting T15`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
-		"Vault Map": "Boss: Guardian of the Vault (based on: Stone Golem)`nLeap Slam, Touch of God Slam`n`nDifficulty: 5/5, Layout: B",
+		"Vault Map": "Boss: Guardian of the Vault (based on: Stone Golem)`nLeap Slam, Touch of God Slam`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
-		"Villa Map": "Boss: Excellis Aurafix (based on: Caliga, Imperatrix)`nFire Trap, Lightning Trap, Bear Trap`n`nDifficulty: 3/5, Layout: C",
+		"Villa Map": "Boss: Excellis Aurafix (based on: Caliga, Imperatrix)`nFire Trap, Lightning Trap, Bear Trap`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes",
 
-		"Volcano Map": "Boss: Forest of Flames (based on: Jikeji)`n`nDifficulty: 4/5, Layout: A",
+		"Volcano Map": "Boss: Forest of Flames (based on: Jikeji)`n`nDifficulty: 4/5, Layout: A, Boss Arena: No",
 
-		"Waste Pool Map": "Boss: Asphyxia (based on: Stranglecharm)`nIce Nova, Arctic Breath`n`nDifficulty: 3/5, Layout: C",
+		"Waste Pool Map": "Boss: Asphyxia (based on: Stranglecharm)`nIce Nova, Arctic Breath`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Wasteland Map": "Boss: The Brittle Emperor (based on: Voll)`n`nDifficulty: 3/5, Layout: B",
+		"Wasteland Map": "Boss: The Brittle Emperor (based on: Voll)`n`nDifficulty: 4/5, Layout: C, Boss Arena: No",
 
-		"Waterways Map": "Boss: Fragment of Winter (based on: Ice Golem)`nGoes Immune and Reflects`n`nDifficulty: 3/5, Layout: C",
+		"Waterways Map": "Boss: Fragment of Winter (based on: Ice Golem)`nGoes Immune and Reflects`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Wharf Map": "Boss: Stone of the Currents (based on: Lightning Golem)`nSpawns Cyclone Elementals`n`nDifficulty: 1/5, Layout: A"
+		"Wharf Map": "Boss: Stone of the Currents (based on: Lightning Golem)`nSpawns Cyclone Elementals`n`nDifficulty: 2/5, Layout: A, Boss Arena: No"
 	},
 
 	"uniqueMaps": {
 		"Crypt Map": "This map contains several floors with multiple waves`nof monster spawning per floor. The map is guaranteed`nto drop at least one unique item, regardless of item level.`nWhile the monster level stays the same, magic and rare`nmonsters increase with every wave. Additionally, at the`nend of every wave appears a rare Necromancer.`n`nBoss: Infector of Dreams (unique Necromancer)`n- Resists Lightning`n- Additional Life`n- Casts Elemental Weakness Curse`n- Raises Undead`n- Allies deal increased Elemental Damage`n`nDifficulty: 2/5",
 
-		"Graveyard Map": "Bosses: Maker of Mires, Jaesyn, Jik'shah, Balah Duke, Kruug`n(based on: Kole, Hillock, Vaal Oversoul, The Weaver, Fidelitas)`nMap contains only the 5 bosses`n`nDifficulty: 3/5",
+		"Graveyard Map": "Bosses (5): Maker of Mires, Jaesyn, Jik'shah, Balah Duke, Kruug`n(based on: Kole, Hillock, Vaal Oversoul, The Weaver, Fidelitas)`nMap contains only the 5 bosses`n`nDifficulty: 3/5",
 		
 		"Atoll Map": "Boss: Merveil, the Siren`nMerveil uses cold spells to attack at range, so the best`nstrategy is to get the most cold resistances possible.`nShe uses Cold Snap and Ice Spear. In close range`nshe hits you with her swords. After death she transforms`ninto the second form and starts to summon adds.`n`nDifficulty: 3/5",
 
