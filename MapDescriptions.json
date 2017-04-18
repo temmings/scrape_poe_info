@@ -30,7 +30,7 @@
 
 		"Beach Map": "Boss: Glace (based on: Hailrake)`nIce Spear, Glacial Cascade`n`nDifficulty: 2/5, Layout: A, Boss Arena: Yes",
 
-		"Beacon Map": "Boss (1 of 4): Uruk Baleh, El'Abin, Leli Goya, Bin'aia`n(based on: Redblade Warband)`nFire Warband Pack.`nCan drop blue helmets with special affix:`n 10% of Physical Damage taken as Fire Damage`n`nDifficulty: 4/5, Layout: A, Boss Arena: No",
+		"Beacon Map": "Boss (1 of 4): Uruk Baleh, El'Abin, Leli Goya, Bin'aia`n(based on: Redblade/Fire Warband)`n`nCan drop blue helmets with special affix:`n 10% of Physical Damage taken as Fire Damage`n`nDifficulty: 4/5, Layout: A, Boss Arena: No",
 
 		"Bog Map": "Boss: Skullbeak (based on: Skeleton Rhoa)`nBreak nests to enrage boss for more loot`n`nDifficulty: 3/5, Layout: B, Boss Arena: Yes",
 
@@ -124,7 +124,7 @@
 
 		"Orchard Map": "Boss: Vision of Justice (based on: Izaro's Spirit)`nChaos and Fire fountains,`nDo not map with GMP map mod`n`nDifficulty: 4/5, Layout: C, Boss Arena: Yes",
 
-		"Overgrown Ruin Map": "Bosses (2 of 8): Berrots, Invari, Kalria, Lokan, Marchak, Morgrants, Rama, Vessider (based on: Chaos Warband Pack)`nCyclone, EK, Traps`nCan drop blue weapons with special affixes:`n  Damage Penetrates (6 to 10)% <Element> Resistance`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
+		"Overgrown Ruin Map": "Bosses (2 of 8): Berrots, Invari, Kalria, Lokan, Marchak,`n  Morgrants, Rama, Vessider (based on: Renegade/Chaos Warband)`n`nCan drop blue weapons with special affixes:`n  Damage Penetrates (6 to 10)% <Element> Resistance`n`nDifficulty: 5/5, Layout: C, Boss Arena: Yes",
 
 		"Overgrown Shrine Map": "Boss: The Wicked One (based on: Crematorium Piety)`nHigh Lightning Damage`n`nDifficulty: 4/5, Layout: C, Boss Arena: No",
 
@@ -166,7 +166,7 @@
 
 		"Sewer Map": "Boss: Arachnoxia (based on: Black Death)`nChaos Damage`n`nDifficulty: 3/5, Layout: C, Boss Arena: No",
 
-		"Shipyard Map": "Boss: Musky Grenn, Susara, Lussi Roth (based on: Brinerot Warband)`nLightning Warband Pack`nCan drop blue gloves with special affix:`n  Your Flasks grant 30% increased Rarity of Items found while using a Flask`n`nDifficulty: 3/5, Layout: B, Boss Arena: No",
+		"Shipyard Map": "Boss (1 of 3): Musky Grenn, Susara, Lussi Roth (based on: Brinerot/Lightning Warband)`n`nCan drop blue gloves with special affix:`n  Your Flasks grant 30% increased Rarity of Items found while using a Flask`n`nDifficulty: 3/5, Layout: B, Boss Arena: No",
 
 		"Shore Map": "Boss: Belcer, Pirate Lord (based on: Fairgraves Eternal)`n`nDifficulty: 3/5, Layout: B, Boss Arena: No",
 
@@ -180,7 +180,7 @@
 
 		"Strand Map": "Bosses (2): Massier, Master of the Blade (based on: Calaf, Kraityn)`n`nDifficulty: 3/5, Layout: A, Boss Arena: Yes",
 
-		"Sulphur Wastes Map": "Boss: Warband Pack`nHigh Cold Damage`nCan drop blue boots with special affix:`n   Cannot Be Frozen`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
+		"Sulphur Wastes Map": "Boss (1 of 3): Yorishi, Jeinei Yuushu, Otesha (based on: Mutewind/Cold Warband)`n`nCan drop blue boots with special affix:`n   Cannot Be Frozen`n`nDifficulty: 4/5, Layout: B, Boss Arena: Yes",
 
 		"Temple Map": "Boss: Riftwalker`nFrostbolt, Vortex. Watch out for slam`n`nDifficulty: 3/5, Layout: C, Boss Arena: Yes",
 
