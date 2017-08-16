@@ -53,9 +53,10 @@ def parse_card_data(link):
 	page = requests.get(link)
 	page.raise_for_status()
 	soup = bs4.BeautifulSoup(page.text, 'html.parser')
-	x = build_data(soup.find_all('tr', id=has_id))  # pick out the cards
+	cardtable = soup.find('table', {'class' : 'wikitable sortable item-table'})
+	x = build_data(cardtable.find_all('tr')[1:])  # pick out the cards. Drop the first tr, which is the table header
 	all_data.extend(x)
-
+	
 	return all_data
 
 
@@ -67,25 +68,16 @@ def build_data(data):
 	:return: list
 	"""
 	all_data = []
-	for tags in data:
+	for trs in data:
 		card_data = {}
-		tag_content = tags.contents[0].text.rstrip()
-		card_data['name'] = tags.contents[0].text.rstrip()
+		tag_content = trs.find('td').span.span.a.text.rstrip()
+		card_data['name'] = tag_content
 		print('Getting data for {}'.format(tag_content))
 		locations = []
 		location = ''
-		for child in tags.contents[3].contents:
-			# The drop locations are separated by <br> elements
-			if child.name is not None and child.name == 'br':
-				if len(location.strip()) > 0:
-					locations.append(location)
-				location = ''
-			elif child.name is not None and child.name == 'a':
-				location += child.text
-			elif isinstance(child, NavigableString):
-				location += child.string
-		if len(location.strip()) > 0:
-			locations.append(location)
+		for child in trs.findAll('td')[3].contents:
+			if child.name is not None and child.name == 'a':
+				locations.append(child.text)
 		card_data['locations'] = locations
 		all_data.append(card_data)
 
@@ -101,7 +93,7 @@ def convert_data_to_AHK_readable_format(all_data):
 	for card in all_data:
 		line = 'divinationCardList["' + card['name'] + '"] := "Drop Restrictions:'
 		for loc in card['locations']:
-			line += '`n- ' + loc.strip()
+			line += '`n -' + loc.strip()
 		line += '"'
 		new_data.append(line)
 
