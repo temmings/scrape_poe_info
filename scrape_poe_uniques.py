@@ -157,7 +157,7 @@ def	seperate_num_ranges(mod_list):
 				if highmax is None:
 					highmax = highmin
 				
-				num_part = lowmin +'-'+ highmin +','+ lowmax +'-'+ highmax
+				num_part = lowmin +'-'+ lowmax +','+ highmin +'-'+ highmax
 				if not (int(lowmin) <= int(lowmax) and int(lowmax) <= int(highmin) and int(highmin) <= int(highmax)):		# debug stuff
 					print('Double range oddity found. Will be written to file as: ' + num_part)
 				
