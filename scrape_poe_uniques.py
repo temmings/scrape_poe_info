@@ -130,7 +130,7 @@ def upcase_first_letter(string):
 	return string[0].upper() + string[1:]
 
 
-def	seperate_num_ranges(mod_list):
+def	separate_num_ranges(mod_list):
 	"""
 	Takes a list of mods and modifies the entries to match the desired format for 
 	the PoE Item Info Script's "Uniques.txt" file.
@@ -233,7 +233,7 @@ def	convert_to_AHK_script_format(item_list):
 			impl_mod_list = remove_hidden_mods(impl_mod_list)
 			
 			if impl_mod_list:		# mod list is not empty
-				impl_mod_list = seperate_num_ranges(impl_mod_list)
+				impl_mod_list = separate_num_ranges(impl_mod_list)
 				mod_line += '|@' + '|@'.join(impl_mod_list)		# Almost always there is no or only one implicit
 				at_count = mod_line.count('|@')
 				
@@ -246,7 +246,7 @@ def	convert_to_AHK_script_format(item_list):
 			expl_mod_list = remove_hidden_mods(expl_mod_list)
 			
 			if expl_mod_list:		# mod list is not empty
-				expl_mod_list = seperate_num_ranges(expl_mod_list)
+				expl_mod_list = separate_num_ranges(expl_mod_list)
 				mod_line += '|' + '|'.join(expl_mod_list)
 
 		new_data.append(mod_line)
