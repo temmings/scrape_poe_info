@@ -1,6 +1,6 @@
 #! python3
 """
-# scrape_poe_uniques.py - scrapes poe uniques from the wiki using the SMW API
+# scrape_poe_uniques.py - scrapes poe uniques from the wiki using the API
 and then writes them, in their category, one per line.
 """
 
@@ -64,8 +64,10 @@ def remove_wiki_formats(text):
 		return None
 	
 	text = regex_wikilinks.sub(r'\1\2', text)	# remove wiki links with regular expression. See the start of the script.
-	text = text.replace('<em class="tc -corrupted">Corrupted</em>', 'Corrupted')	# remove corrupted markup
-	text = text.replace('&#60;', '<').replace('&#62;', '>')
+	text = text.replace('&lt;em class=&quot;tc -corrupted&quot;&gt;Corrupted&lt;/em&gt;', 'Corrupted')	# remove corrupted markup
+	text = text.replace('br /', 'br')
+	text = text.replace('&amp;#60;', '<').replace('&amp;#62;', '>')
+	text = text.replace('&lt;', '<').replace('&gt;', '>')
 	return text
 
 	
@@ -76,25 +78,22 @@ def clean_up_api_results(api_results):
 	At this stage the mods are still full of wiki formatting and
 	technical annotations, like mods marked with '(Hidden)'.
 	Note that the explicit mods of an item are also still in a single string,
-	with '<br>'s seperating them.	
+	with '<br>' seperating them.	
 	"""
 	
-	item_names = list(api_results.keys())
-	item_names.sort()
+	#item_names = list(api_results.keys())
+	#item_names.sort()
 	partial_item_list = []
-	for item_name in item_names:
+	for result in api_results:
+		itemdata = result['title']
 		obj = {}
-		obj['name'] = item_name
-		impl = api_results[item_name]['printouts']['Has implicit stat text']		# returns a list with one entry or an empty list
-		if impl:
-			impl = impl[0]		#	check if empty first and then assign entry
-		else:
+		obj['name'] = itemdata['name']
+		impl = itemdata['implicit stat text']		# returns a list with one entry or an empty list
+		if not impl:
 			impl = None
 		obj['impl'] = remove_wiki_formats(impl)
-		expl = api_results[item_name]['printouts']['Has explicit stat text']	# explicit mods are also in one long entry
-		if expl:
-			expl = expl[0]
-		else:
+		expl = itemdata['explicit stat text']	# explicit mods are also in one long entry
+		if not expl:
 			expl = None
 		obj['expl'] = remove_wiki_formats(expl)
 		partial_item_list.append(obj)
@@ -105,15 +104,15 @@ def clean_up_api_results(api_results):
 def get_api_results(item_category):
 	"""
 	This function gets the wiki data for given unique item categories.
-	It uses the wiki's SMW API and requests json format.
+	It uses the wiki's API and requests json format.
 	See this HTML version for belts to get a better idea how the API response is structured:
 	https://pathofexile.gamepedia.com/api.php?action=askargs&parameters=limit%3D500&conditions=Has%20item%20class::Belts|Has%20rarity::Unique&printouts=Has%20implicit%20stat%20text|Has%20explicit%20stat%20text
 	"""
 	
 	print('Getting data for ' + item_category)
-	r = requests.get('https://pathofexile.gamepedia.com/api.php?action=askargs&parameters=limit%3D500&conditions=Has%20item%20class::' + item_category + '|Has%20rarity::Unique&printouts=Has%20implicit%20stat%20text|Has%20explicit%20stat%20text&format=json')
+	r = requests.get('https://pathofexile.gamepedia.com/api.php?action=cargoquery&format=json&limit=500&tables=items&fields=name%2Cimplicit_stat_text%2Cexplicit_stat_text&where=rarity%3D%22unique%22+AND+class%3D%22' + item_category + '%22&having=items._pageName&formatversion=1')
 	rj = r.json()
-	api_results = rj['query']['results']
+	api_results = rj['cargoquery']
 	
 	return clean_up_api_results(api_results)
 
@@ -212,21 +211,17 @@ def	convert_to_AHK_script_format(item_list):
 	style_variant_included = []
 		
 	for item in item_list:
-		if regex_wiki_page_disamb.search(item['name']) is not None:
-			item_name = regex_wiki_page_disamb.search(item['name']).group(1)
-			if item_name in prepared_style_variants:
-				if item_name not in style_variant_included:
-					mod_line = prepared_style_variants[item_name]
-					new_data.append(mod_line)
-					style_variant_included.append(item_name)
-					continue		# skip the rest of the loop because mod line was added properly
-				else:
-					continue		# skip the rest of the loop because style variant was already added
-
+		item_name = item['name']
+		if item_name in prepared_style_variants:
+			if item_name not in style_variant_included:
+				mod_line = prepared_style_variants[item_name]
+				new_data.append(mod_line)
+				style_variant_included.append(item_name)
+				continue		# skip the rest of the loop because mod line was added properly
 			else:
-				print('Style variant expected but not found for: ' + item['name'] +'\nItem gets parsed as usual and added to the file, double check there.')
-		
-		mod_line = item['name']
+				continue		# skip the rest of the loop because style variant was already added
+		else:
+			mod_line = item['name']
 		
 		if item['impl']:
 			impl_mod_list = item['impl'].split('<br>')
@@ -265,7 +260,7 @@ def define_file_header():
 	data = []
 	d = datetime.datetime.now()
 	now_time = d.strftime('%Y-%m-%d at %H:%M:%S')
-	data.append('; Data from https://pathofexile.gamepedia.com/Path_of_Exile_Wiki using the SMW API.')
+	data.append('; Data from https://pathofexile.gamepedia.com/Path_of_Exile_Wiki using the API.')
 	data.append('; The "@" symbol marks a mod as implicit. This means a separator line will be appended after this mod. If there are multiple implicit mods, mark the last one in line.')
 	data.append('; Comments can be made with ";", blank lines will be ignored.')
 	data.append(';')
