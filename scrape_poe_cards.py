@@ -1,6 +1,6 @@
 #! python3
 """
-scrape_poe_cards.py - scrapes poe divination cards from the wiki using the SMW API.
+scrape_poe_cards.py - scrapes poe divination cards from the wiki using the API.
 """
 
 import requests, re, datetime, time, json, os
@@ -9,68 +9,83 @@ SCRIPTDIR = os.path.dirname(os.path.abspath(__file__))
 
 # Regex magic! I recommend using https://regex101.com to make it more readable.
 
-regex_wikilinks2 = re.compile(r'\[\[([^\]\|]*)\]\]|\[\[([^\]\|]* Map)\|[^\]\|]*\]\]|\[\[[^\]\|]*\|([^\]\|]*)\]\]')
+regex_wikilinks = re.compile(r'\[\[([^\]\|]*)\]\]|\[\[[^\]\|]*\|([^\]\|]*)\]\]')
 """
-matches formats "[[text]]" or "[[wikipage|text]] and stores "text" as capture group 1 or 3, respectively.
-For links to map articles the first part is matched, so that "map" is included. This is stored as capture group 2.
-[[Core Map|Core]] -> Core Map
+matches formats "[[text]]" or "[[wikipage|text]] and stores "text" as capture group 1 or 2, respectively.
 [[The Harvest (area)|The Harvest]] -> The Harvest
 Sold by [[Zana]] -> Zana
 Drops in [[map]]s -> map
 
-Since only one capture group is filled each time, using all together in a replacement like r'\1\2\3' turns
+Since only one capture group is filled each time, using all together in a replacement like r'\1\2' turns
 all match variants into the desired text.
 """
 
-def remove_wiki_formats(text):
-	if text:
-		text = text[0]
-	else:
+def remove_wiki_formats_dropareas(text):
+	if not text:
+		return None
+	
+	text = text.replace('[[', '').replace(']]', '')
+	list = text.split(' \u2022 ')
+	
+	return list
+
+
+def remove_wiki_formats_droptext(text):
+	if not text:
 		return None
 	
 	text = text.replace(']], [[', ']]><[[')
 	list = text.split('><')
-	# Splitting the text into a list/array without removing the [[ ]] link syntax, so that the regex below has limiters.
-	# Simply splitting on ', ' does not work because there are items with a comma in the name.
+	# Splitting the text into a list/array without removing the [[ ]] link syntax, so that the regex below has delimiters.
+	# Simply splitting on ', ' does not work because there can be entries with a comma in the name.
 	for index, entry in enumerate(list):
-		list[index] = regex_wikilinks2.sub(r'\1\2\3', entry)	# remove wiki links with regular expression. See the start of the script.
+		list[index] = regex_wikilinks.sub(r'\1\2', entry)	# remove wiki links with regular expression. See the start of the script.
 	
-	list.sort()
 	return list
 
 
 def clean_up_api_results(api_results):
 	"""
 	Takes the API result and turns it into a list of json objects.
-	At this stage the mods are still in the original wiki format.
+	At this stage the entries are still in the original wiki format, which get removed here.
 	"""
 	
-	item_names = list(api_results.keys())
-	item_names.sort()
+	#item_names = list(api_results.keys())
+	#item_names.sort()
+	
 	partial_item_list = []
-	for item_name in item_names:
+	for result in api_results:
+		itemdata = result['title']
 		obj = {}
-		obj['name'] = item_name
-		obj['location'] = remove_wiki_formats(api_results[item_name]['printouts']['Has area drop restriction HTML'])
-		obj['restriction'] = remove_wiki_formats(api_results[item_name]['printouts']['Has drop restriction text'])
+		obj['name'] = itemdata['name']
+		
+		dropareas = itemdata['drop areas html']		# returns a string, which is a list with ' \u2022 ' as separators.
+		if not dropareas:
+			dropareas = None
+		obj['dropareas'] = remove_wiki_formats_dropareas(dropareas)
+		
+		droptext = itemdata['drop text']	# returns a string, which CAN be a list with ', ' as separators.
+		if not droptext:
+			droptext = None
+		obj['droptext'] = remove_wiki_formats_droptext(droptext)
 		
 		partial_item_list.append(obj)
 	
 	return partial_item_list
-	
-	
+
+
 def get_api_results(item_category):
 	"""
 	This function gets the wiki data for given unique item categories.
-	It uses the wiki's SMW API and requests json format.
+	It uses the wiki's API and requests json format.
 	See this HTML version to get a better idea how the API response is structured:
-	https://pathofexile.gamepedia.com/api.php?action=askargs&parameters=limit%3D500&conditions=Has%20item%20class::Divination%20Card&printouts=Has%20area%20drop%20restriction%20HTML|Has%20drop%20restriction%20text
+	https://pathofexile.gamepedia.com/api.php?action=cargoquery&format=json&limit=500&tables=items&fields=name%2Cdrop_areas_html%2Cdrop_text&where=class%3D%22Divination%20Card%22&group_by=items._pageName&formatversion=1
 	"""
 	
 	print('Getting data for ' + item_category)
-	r = requests.get('https://pathofexile.gamepedia.com/api.php?action=askargs&parameters=limit%3D500&conditions=Has%20item%20class::' + item_category + '&printouts=Has%20area%20drop%20restriction%20HTML|Has%20drop%20restriction%20text&format=json')
+	r = requests.get('https://pathofexile.gamepedia.com/api.php?action=cargoquery&format=json&limit=500&tables=items&fields=name%2Cdrop_areas_html%2Cdrop_text&where=class%3D%22' + item_category + '%22&group_by=items._pageName&formatversion=1')
 	rj = r.json()
-	api_results = rj['query']['results']
+	api_results = rj['cargoquery']
 	
 	return clean_up_api_results(api_results)
 
@@ -93,25 +108,41 @@ def convert_to_AHK_script_format(all_data):
 	for card in all_data:
 		line = 'divinationCardList["' + card['name'] + '"] := "'
 		
-		if card['location']:
+		if card['dropareas']:
 			line += 'Drop Locations:'
 			loc_map = []
+			loc_oldmap = []
 			loc_area = []
-			for loc in card['location']:
-				if re.search(" Map$", loc):
-					loc_map.append(loc)
+			for loc in card['dropareas']:
+				if re.search('(War for the Atlas)', loc):
+					loc_map.append(loc.replace(' (War for the Atlas)', ''))
+				elif re.search('(Atlas of Worlds)', loc):
+					loc_oldmap.append(loc.replace(' (Atlas of Worlds)', ''))
 				else:
 					loc_area.append(loc)
-			line += '`n ' + '`n '.join(loc_map + loc_area)
+			
+			loc_additional_old = []
+			for loc in loc_oldmap:
+				if loc not in loc_map:
+					loc_additional_old.append(loc)
+			if (loc_map + loc_area):
+				line += '`n ' + '`n '.join(loc_map + loc_area)
+			else:
+				line += '`n No current record. Generic sources like Diviner\'s Strongboxes,`n The Eternal Labyrinth or The Putrid Cloister still apply.'
+			
+			if loc_additional_old:
+				line += '`n`nAdditionally these locations were recorded in 3.0:'
+				line += '`n ' + '`n '.join(loc_additional_old)
+			
 		else:
-			if not card['restriction']:
+			if not card['droptext']:
 				line += 'No drop information available'
 		
-		if card['restriction']:
-			if card['location']:
-				line += '`n'
+		if card['droptext']:
+			if card['dropareas']:
+				line += '`n`n'
 			line += 'Drop Restrictions:'
-			for restr in card['restriction']:
+			for restr in card['droptext']:
 				line += '`n ' + restr.strip()
 		
 		line += '"'
@@ -129,7 +160,7 @@ def define_file_header():
 	data = []
 	d = datetime.datetime.now()
 	now_time = d.strftime('%Y-%m-%d at %H:%M:%S')
-	data.append('; Data from https://pathofexile.gamepedia.com/Path_of_Exile_Wiki using the SMW API.')
+	data.append('; Data from https://pathofexile.gamepedia.com/Path_of_Exile_Wiki using the API.')
 	data.append('; Comments can be made with ";", blank lines will be ignored.')
 	data.append(';')
 	data.append('; This file was auto-generated by scrape_poe_cards.py on {}'.format(now_time) + '\n')
