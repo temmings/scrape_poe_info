@@ -159,11 +159,13 @@ def convert_data_to_AHK_readable_format(all_data):
 	Poe_item_info AHK script.
 	:return:
 	"""
-
+	
 	# Read the descriptions of various maps
 	with open(SCRIPTDIR + '\\MapDescriptions.json', 'r') as f:
 		map_descriptions = json.load(f)
-
+	
+	uniqueMapNameFromBase = open(SCRIPTDIR + '\\MapNameFromBase.txt', 'r').read()
+	
 	new_data = []
 	unique_map = {}
 	matchList = []
@@ -176,27 +178,26 @@ def convert_data_to_AHK_readable_format(all_data):
 	
 	new_data.append('mapMatchList := ["' + '","'.join(matchList) + '"]\n')
 	
+	new_data.append('\n' + uniqueMapNameFromBase + '\n')
+	
 	for mymap in all_data:
-		if mymap['unique']:
-			line = 'uniqueMapList["' + mymap['name'] + '"] := "'
-		else:
-			line = 'mapList["' + mymap['name'] + ' Map"] := "'
 		
-		line += 'Tier: ' + mymap['tier'] + ', Level: ' + mymap['level']
+		line = ''
+		#line = 'Tier: ' + mymap['tier'] + ', Level: ' + mymap['level']
 		#line += '`nTileset: ' + mymap['tileset']
 		#if mymap['setting'] is not None:
 		#	line += ' (' + mymap['setting'] + ')'
 
 		# Add on vendor recipes and connected maps
 		if mymap['unique'] is False:
-			vendor_lines = '`n3 to 1 vendor recipe:'
+			vendor_lines = '3 to 1 vendor recipe:'
 			if mymap['producedby']:
 				vendor_lines += '`n Produced by: ' + mymap['producedby']
 			else:
 				vendor_lines += '`n Produced by: none'
 			if mymap['upgradesto']:
 				vendor_lines += '`n Upgrades to: ' + mymap['upgradesto']
-			elif mymap['tier'] is 16:
+			elif mymap['tier'] == '16':
 				vendor_lines += '`n Upgrades to: none'
 			else:
 				vendor_lines += '`n Upgrades to: ?'
@@ -225,9 +226,15 @@ def convert_data_to_AHK_readable_format(all_data):
 			if mymap['name'] in map_descriptions['maps']:
 				line += '`n`n' + map_descriptions['maps'][mymap['name']]
 
-		line += '"\n'
-		new_data.append(line)
-
+		line = line.lstrip('`n')
+		
+		if mymap['unique']:
+			entry = 'uniqueMapList["' + mymap['name'] + '"] := "' + line + '"\n'
+		else:
+			entry = 'mapList["' + mymap['name'] + ' Map"] := "' + line + '"\n'
+		
+		new_data.append(entry)
+	
 	return new_data
 
 
