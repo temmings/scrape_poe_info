@@ -20,6 +20,12 @@ Since only one capture group is filled each time, using all together in a replac
 all match variants into the desired text.
 """
 
+regex_mapnames = re.compile(r'([A-Z][a-z]+)')
+"""
+
+"""
+
+
 def remove_wiki_formats_dropareas(text):
 	if not text:
 		return None
@@ -97,7 +103,75 @@ def get_wiki_data(item_categories):
 	
 	print('')
 	return data_list
-
+	
+def convert_areaID_to_mapname(areaID):
+	"""
+	This function turns technical wiki data such as "Area:MapWorldsBoneCrypt" into "Bone Crypt Map (War for the Atlas)"
+	"""
+	mapname = areaID
+	
+	if 'Unique' in areaID:
+		if 'Area:MapWorlds' in areaID:
+			areaID = areaID.replace('Area:MapWorlds', '')
+			
+			if "ChateauUnique" in areaID:
+				mapname = areaID.replace("ChateauUnique", "The Perandus Manor")
+			elif "StrandUnique" in areaID:
+				mapname = areaID.replace("StrandUnique", "Whakawairua Tuahu")
+			elif "GraveyardUnique" in areaID:
+				mapname = areaID.replace("GraveyardUnique", "Hallowed Ground")
+			elif "CemeteryUnique" in areaID:
+				mapname = areaID.replace("CemeteryUnique", "Hallowed Ground")
+			elif "AtollUnique" in areaID:
+				mapname = areaID.replace("AtollUnique", "Maelström of Chaos")	# looks broken, works correct. The encoding is done later.
+			elif "UndergroundRiverUnique" in areaID:
+				mapname = areaID.replace("UndergroundRiverUnique", "Caer Blaidd, Wolfpack's Den")
+			elif "UndergroundSeaUnique" in areaID:
+				mapname = areaID.replace("UndergroundSeaUnique", "Caer Blaidd, Wolfpack's Den")
+			elif "BoneCryptUnique" in areaID:
+				mapname = areaID.replace("BoneCryptUnique", "Olmec's Sanctum")
+			elif "CatacombsUnique" in areaID:
+				mapname = areaID.replace("CatacombsUnique", "Olmec's Sanctum")
+			elif "MazeUnique" in areaID:
+				mapname = areaID.replace("MazeUnique", "Olmec's Sanctum")
+			elif "DunesUnique" in areaID:
+				mapname = areaID.replace("DunesUnique", "Pillars of Arun")
+			elif "OvergrownShrineUnique" in areaID:
+				mapname = areaID.replace("OvergrownShrineUnique", "Acton's Nightmare")
+			elif "NecropolisUnique" in areaID:
+				mapname = areaID.replace("NecropolisUnique", "Death and Taxes")
+			elif "PromenadeUnique" in areaID:
+				mapname = areaID.replace("PromenadeUnique", "Hall of Grandmasters")
+			elif "ShoreUnique" in areaID:
+				mapname = areaID.replace("ShoreUnique", "Mao Kun")
+			elif "ReefUnique" in areaID:
+				mapname = areaID.replace("ReefUnique", "Mao Kun")
+			elif "TortureChamberUnique" in areaID:
+				mapname = areaID.replace("TortureChamberUnique", "Oba's Cursed Trove")
+			elif "TempleUnique" in areaID:
+				mapname = areaID.replace("TempleUnique", "Poorjoy's Asylum")
+			elif "HarbingerUnique" in areaID:
+				mapname = areaID.replace("HarbingerUnique", "The Beachhead")
+			elif "CursedCryptUnique" in areaID:
+				mapname = areaID.replace("CursedCryptUnique", "The Coward's Trial")
+			elif "CryptUnique" in areaID:
+				mapname = areaID.replace("CryptUnique", "The Coward's Trial")
+			elif "MuseumUnique" in areaID:
+				mapname = areaID.replace("MuseumUnique", "The Putrid Cloister")
+			elif "MoonTempleUnique" in areaID:
+				mapname = areaID.replace("MoonTempleUnique", "The Twilight Temple")
+			elif "CourtyardUnique" in areaID:
+				mapname = areaID.replace("CourtyardUnique", "The Vinktar Square")
+			elif "VaalPyramidUnique" in areaID:
+				mapname = areaID.replace("VaalPyramidUnique", "Vaults of Atziri")
+			
+			mapname = mapname + ' (War for the Atlas)'
+	
+	if 'Area:MapWorlds' in areaID:
+		areaID = areaID.replace('Area:MapWorlds', '')
+		mapname = regex_mapnames.sub(r'\1 ', areaID) + 'Map (War for the Atlas)'
+	
+	return mapname
 
 def convert_to_AHK_script_format(all_data):
 	"""
@@ -114,6 +188,7 @@ def convert_to_AHK_script_format(all_data):
 			loc_oldmap = []
 			loc_area = []
 			for loc in card['dropareas']:
+				loc = convert_areaID_to_mapname(loc)
 				if re.search('(War for the Atlas)', loc):
 					loc_map.append(loc.replace(' (War for the Atlas)', ''))
 				elif re.search('(Atlas of Worlds)', loc):
