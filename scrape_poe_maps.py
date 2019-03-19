@@ -11,7 +11,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 SCRIPTDIR = os.path.dirname(os.path.abspath(__file__))
 
 base_url = 'http://pathofexile.gamepedia.com'
-main_url = base_url + '/User:ARTyficial/MapData'
+main_url = base_url + '/User:Temmings/MapData'
 
 rx_search = re.compile(r'\+*\(([\d\.]+)\s[a-z]+\s([\d\.]+)[)]|(\+*[\d\.]+\%)|([\d\.]+-[\d\.]+)|(\([\d\.]+-[\d\.]+)\s\w+\s([\d\.]+-[\d\.]+\))|(-?\+?[\d\.]+)')
 vendor_regex = re.compile('yields? one|produces? one', re.IGNORECASE)
@@ -47,7 +47,7 @@ def get_main_page(url):
 	:return: list, containing basic map data and list of urls
 	"""
 	map_list = []
-	print('Getting User:ARTyficial/MapData ...')
+	print('Getting User:Temmings/MapData ...')
 	page = requests.get(url)
 	page.raise_for_status()
 	soup = bs4.BeautifulSoup(page.text, 'html.parser')
@@ -241,7 +241,7 @@ def convert_data_to_AHK_readable_format(all_data):
 def write(new_data):
 	file = open(SCRIPTDIR + '\\MapList.txt', 'a+b')  # opens file for writing
 	for row in new_data:
-		file.write(row.encode('cp1252'))
+		file.write(row.encode('utf8'))
 		file.write(b'\n')
 	file.close()
 
